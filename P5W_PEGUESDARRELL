@@ -1,0 +1,59 @@
+import random
+
+# function to generate two random numbers and add them
+def add_numbers():
+    num1 = random.randint(1, 100)
+    num2 = random.randint(1, 100)
+    answer = num1 + num2
+    guesses = 1
+    print("What is " + str(num1) + " + " + str(num2) + "?")
+    while True:
+        guess = int(input())
+        if guess == answer:
+            print("Congratulations! You got the answer in " + str(guesses) + " guesses.")
+            break
+        elif guess < answer:
+            print("Too low. Guess again.")
+        else:
+            print("Too high. Guess again.")
+        guesses += 1
+
+# function to generate two random numbers and subtract them
+def subtract_numbers():
+    num1 = random.randint(1, 100)
+    num2 = random.randint(1, 100)
+    answer = num1 - num2
+    guesses = 1
+    print("What is " + str(num1) + " - " + str(num2) + "?")
+    while True:
+        guess = int(input())
+        if guess == answer:
+            print("Congratulations! You got the answer in " + str(guesses) + " guesses.")
+            break
+        elif guess < answer:
+            print("Too low. Guess again.")
+        else:
+            print("Too high. Guess again.")
+        guesses += 1
+
+# function to display the menu and get the user's choice
+def display_menu():
+    print("Main Menu")
+    print("1. Add numbers")
+    print("2. Subtract numbers")
+    print("3. Quit")
+    choice = int(input("Enter your choice: "))
+    return choice
+
+# main program loop
+while True:
+    choice = display_menu()
+    if choice == 1:
+        add_numbers()
+    elif choice == 2:
+        subtract_numbers()
+    elif choice == 3:
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please enter 1, 2, or 3.")
